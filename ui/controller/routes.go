@@ -6,11 +6,18 @@ import (
 )
 
 func Home(ctx *gin.Context){
+	println("get home")
 	ctx.HTML(http.StatusOK, "home.html", gin.H{})
 }
 
 func Ticket(ctx *gin.Context) {
+	println("get ticket")
 	ctx.HTML(http.StatusOK, "ticket.html", gin.H{})
+}
+
+func NewTicket(ctx *gin.Context) {
+	println("get new ticket")
+	ctx.HTML(http.StatusOK, "new_ticket.html", gin.H{})
 }
 
 func NoRoute(ctx *gin.Context) {

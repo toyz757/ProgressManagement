@@ -1,0 +1,11 @@
+{{ template "head" }}
+    <body>
+        <form action="//localhost:8080/ticket" method="post">
+        	<div>タイトル<input type="text" name="title"/></div>
+        	<div>説明<textarea name="explanation" rows="4" cols="40"></textarea></div>
+        	<div>担当者<input type="text" name="responsible"/></div>
+        	<div>期日<input type="date" name="deadline"/></div>
+        	<input type="submit" value="作成"/>
+        </form>
+    </body>
+{{ template "foot" }}
