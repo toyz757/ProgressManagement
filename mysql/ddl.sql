@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS ticket;
+DROP TABLE IF EXISTS tickets;
 
-CREATE TABLE ticket (
-	ticket_id int(8) NOT NULL,
-	title varchar(30) NOT NULL,
-	responsible varchar(30) NOT NULL,
-	deadline date NOT NULL,
-	PRIMARY KEY (ticket_id)
+CREATE TABLE tickets (
+	id int(8) NOT NULL AUTO_INCREMENT,
+	title varchar(30),
+	responsible varchar(30),
+	deadline date,
+	PRIMARY KEY (id)
 )ENGINE = InnoDB DEFAULT CHARSET = utf8

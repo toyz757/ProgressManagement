@@ -2,10 +2,19 @@ package main
 
 import (
   "os"
+  "time"
   
   "github.com/jinzhu/gorm"
     _ "github.com/go-sql-driver/mysql"
 )
+
+
+type ticket struct {
+  id int
+  title string `gorm:"default:'galeone'"`
+  responsible string
+  deadline time.Time
+}
 
 func gormConnect() *gorm.DB {
   DBMS     := "mysql"
@@ -23,8 +32,19 @@ func gormConnect() *gorm.DB {
   return db
 }
 
+
 func main(){
   db := gormConnect()
-  
   defer db.Close()
+
+  // 構造体のインスタンス化
+  ticketEx := ticket{id: 100, title: "title1", responsible: "toy", deadline: time.Now()}
+
+  println("A地点到達")
+  // INSERTを実行
+  db.Create(&ticketEx)
+  println("ticket id = "+ticketEx.title)
+
+  println("B地点到達")
+  time.Sleep(1 * time.Second) //おそらく、早すぎてDBのエラーが出ないことがあるための暫定対策
 }
